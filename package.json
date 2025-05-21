@@ -1,0 +1,44 @@
+{
+  "name": "@metamorp/integer-container-addon",
+  "version": "1.0.2",
+  "description": "C++ Integer Container Node.js addon example",
+  "main": "index.js",  "scripts": {
+    "prepare": "cmake-js compile",
+    "test": "node test.js",
+    "rebuild": "cmake-js rebuild",
+    "clean": "cmake-js clean",
+    "build": "cmake-js build",
+    "copy-binary": "node copy-binary.js",
+    "prepublish": "pnpm run build && pnpm run copy-binary"
+  },
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "cmake-js": "^7.2.1",
+    "node-addon-api": "^6.0.0"
+  },  "engines": {
+    "node": ">=16.0.0"
+  },
+  "packageManager": "pnpm@9.5.0",  "files": [
+    "index.js",
+    "binding.gyp",
+    "CMakeLists.txt",
+    "cpp/",
+    "src/",
+    "prebuilds/",
+    "README.md",
+    "USAGE.md"
+  ],
+  "keywords": [
+    "addon",
+    "native",
+    "c++",
+    "buffer",
+    "shared-memory"
+  ],
+  "author": "Metamorp",
+  "license": "ISC",
+  "publishConfig": {
+    "registry": "http://3.39.10.72:51207",
+    "access": "public"
+  }
+}
