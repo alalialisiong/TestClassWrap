@@ -30,7 +30,7 @@
 
 ```javascript
 // 모듈 가져오기
-const IntegerContainer = require('@metamorp/integer-container-addon');
+const IntegerContainer = require("@metamorp/integer-container-addon");
 
 // 10개의 정수를 저장하는 컨테이너 생성
 const container = new IntegerContainer();
@@ -64,12 +64,12 @@ const processData = async () => {
   try {
     const success = await container.processAsync(10);
     console.log(`비동기 처리 완료: ${success}`);
-    
+
     // 결과 확인
     console.log(`값 0: ${container.getValue(0)}`); // 110
     console.log(`값 1: ${container.getValue(1)}`); // 210
   } catch (error) {
-    console.error('비동기 처리 중 오류 발생:', error);
+    console.error("비동기 처리 중 오류 발생:", error);
   }
 };
 
@@ -91,10 +91,12 @@ const container = new IntegerContainer(size);
 #### 메서드
 
 - `getValue(index)`: 특정 인덱스의 값을 조회합니다.
+
   - `index` (number): 조회할 인덱스
   - 반환값: 인덱스의 값 (number)
 
 - `setValue(index, value)`: 특정 인덱스에 값을 설정합니다.
+
   - `index` (number): 설정할 인덱스
   - `value` (number): 설정할 값
 

@@ -38,7 +38,7 @@ pnpm add @metamorp/integer-container-addon
 
 ```javascript
 // 모듈 가져오기
-const IntegerContainer = require('@metamorp/integer-container-addon');
+const IntegerContainer = require("@metamorp/integer-container-addon");
 
 // 10개의 정수를 저장하는 컨테이너 생성
 const container = new IntegerContainer();
@@ -63,16 +63,19 @@ console.log(container.getValue(2)); // 310
 ## 개발 및 빌드 방법
 
 1. 의존성 패키지 설치:
+
 ```bash
 pnpm install
 ```
 
 2. 테스트 실행:
+
 ```bash
 pnpm test
 ```
 
 3. 재빌드:
+
 ```bash
 pnpm rebuild
 ```

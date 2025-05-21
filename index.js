@@ -1,17 +1,22 @@
 /**
  * @metamorp/integer-container-addon
- * 
+ *
  * C++ 클래스를 Node.js에 래핑한 네이티브 애드온 모듈입니다.
  * 메모리 공유 및 비동기 처리 기능을 제공합니다.
  */
 
-'use strict';
+"use strict";
 
-const path = require('path');
-const fs = require('fs');
+const path = require("path");
+const fs = require("fs");
 
 // 미리 빌드된 바이너리 경로 확인
-const prebuildsPath = path.join(__dirname, 'prebuilds', process.platform + '-' + process.arch, 'integer_container_addon.node');
+const prebuildsPath = path.join(
+  __dirname,
+  "prebuilds",
+  process.platform + "-" + process.arch,
+  "integer_container_addon.node"
+);
 
 // 미리 빌드된 바이너리가 있는지 확인
 let addon;
@@ -20,13 +25,13 @@ if (fs.existsSync(prebuildsPath)) {
   addon = require(prebuildsPath);
 } else {
   // 바인딩을 통한 바이너리 검색
-  addon = require('bindings')('integer_container_addon');
+  addon = require("bindings")("integer_container_addon");
 }
 
 /**
  * @class IntegerContainer
  * @description C++ 정수 배열 컨테이너 클래스의 Node.js 래퍼
- * 
+ *
  * 이 클래스는 10개의 정수 값을 저장하는 C++ 컨테이너를 래핑합니다.
  * Node.js와 C++ 사이에 메모리를 공유하며, 비동기 처리 기능도 제공합니다.
  */
@@ -37,14 +42,14 @@ class IntegerContainer {
    */
   constructor(size = 10) {
     this._container = new addon.IntegerContainer(size);
-    
+
     // 공유 버퍼를 바로 가져옴
     this._buffer = this._container.getSharedBuffer();
-    
+
     // Int32Array 뷰 생성
     this._int32View = new Int32Array(
-      this._buffer.buffer, 
-      this._buffer.byteOffset, 
+      this._buffer.buffer,
+      this._buffer.byteOffset,
       this._buffer.byteLength / Int32Array.BYTES_PER_ELEMENT
     );
   }
